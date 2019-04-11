@@ -40,6 +40,10 @@ io.on('connection', function (socket) {
 });
 
 var port = 8000;
+if (process.env.PORT != null){
+	port = process.env.PORT;
+}
+
 server.listen(port, function () {
   console.log('Chatbot is listening on port ' + port + '!')
 });

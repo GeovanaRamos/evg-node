@@ -24,11 +24,15 @@ function parse(question, callback) {
     });
 }
 
+var host = "http://localhost:5005";
+if (process.env.HOST != null) {
+    host = process.env.HOST;
+}
 
 function createParseRequest(message) {
     return {
         method: 'POST',
-        uri: 'http://localhost:5005/webhooks/rest/webhook',
+        uri: host + '/webhooks/rest/webhook',
         json: true,
         body: {
             'message': message
